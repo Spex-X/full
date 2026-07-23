@@ -40,6 +40,8 @@ export default function Page35() {
           {/* Video */}
           <div className="mb-6">
             <video
+              autoPlay
+              muted
               controls
               className="w-full rounded-xl shadow-lg"
               poster="https://res.cloudinary.com/dss3arlis/image/upload/v1784832900/video-poster.jpg"
