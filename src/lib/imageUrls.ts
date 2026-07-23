@@ -61,6 +61,15 @@ export const imageUrls: Record<string, string> = {
   'agora.webp': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784832376/calistenia/agora.webp',
   'seuobjetivo.webp': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784832442/calistenia/seuobjetivo.webp',
   'recupereseucorpo.webp': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784832436/calistenia/recupereseucorpo.webp',
+
+  // Testimonials
+  'fernanda.png': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784843523/calistenia/testimonials/fernanda.png',
+  'juliana.png': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784843527/calistenia/testimonials/juliana.png',
+  'beatriz.png': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784843529/calistenia/testimonials/beatriz.png',
+  'carla.png': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784843532/calistenia/testimonials/carla.png',
+
+  // Celular
+  'celular.png': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784843565/calistenia/celular.png',
 };
 
 export function getImageUrl(localPath: string): string {

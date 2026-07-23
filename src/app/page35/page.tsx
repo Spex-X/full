@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page35() {
   const router = useRouter();
@@ -113,6 +114,17 @@ export default function Page35() {
             </div>
           </div>
 
+          {/* Celular Image */}
+          <div className="mb-6 flex justify-center">
+            <div className="relative w-full h-auto rounded-2xl overflow-hidden shadow-lg">
+              <img
+                src={getImageUrl("/images/celular.png")}
+                alt="Aplicativo Calistenia"
+                className="w-full h-auto rounded-2xl"
+              />
+            </div>
+          </div>
+
           {/* App Section */}
           <div className="text-center mb-4">
             <h3 className="text-lg font-bold text-gray-800 mb-2">
@@ -161,10 +173,17 @@ export default function Page35() {
             </h3>
             <div className="space-y-4">
               <div className="bg-gray-50 p-3 rounded-lg">
-                <p className="font-bold text-pink-600 text-sm mb-1">
+                <div className="flex justify-center mb-2">
+                  <img
+                    src={getImageUrl("/images/beatriz.png")}
+                    alt="Beatriz"
+                    className="w-24 h-24 rounded-full object-cover"
+                  />
+                </div>
+                <p className="font-bold text-pink-600 text-sm mb-1 text-center">
                   Transformação de Beatriz
                 </p>
-                <p className="text-xs text-gray-700 mb-1">
+                <p className="text-xs text-gray-700 mb-1 text-center">
                   Beatriz: -3kg e Corpo Tonificado em 21 dias
                 </p>
                 <p className="text-xs text-gray-600 italic">
@@ -172,10 +191,17 @@ export default function Page35() {
                 </p>
               </div>
               <div className="bg-gray-50 p-3 rounded-lg">
-                <p className="font-bold text-pink-600 text-sm mb-1">
+                <div className="flex justify-center mb-2">
+                  <img
+                    src={getImageUrl("/images/carla.png")}
+                    alt="Carla"
+                    className="w-24 h-24 rounded-full object-cover"
+                  />
+                </div>
+                <p className="font-bold text-pink-600 text-sm mb-1 text-center">
                   Transformação de Carla
                 </p>
-                <p className="text-xs text-gray-700 mb-1">
+                <p className="text-xs text-gray-700 mb-1 text-center">
                   Carla: -13kg em 21 dias
                 </p>
                 <p className="text-xs text-gray-600 italic">
@@ -183,10 +209,17 @@ export default function Page35() {
                 </p>
               </div>
               <div className="bg-gray-50 p-3 rounded-lg">
-                <p className="font-bold text-pink-600 text-sm mb-1">
+                <div className="flex justify-center mb-2">
+                  <img
+                    src={getImageUrl("/images/fernanda.png")}
+                    alt="Fernanda"
+                    className="w-24 h-24 rounded-full object-cover"
+                  />
+                </div>
+                <p className="font-bold text-pink-600 text-sm mb-1 text-center">
                   Transformação de Fernanda
                 </p>
-                <p className="text-xs text-gray-700 mb-1">
+                <p className="text-xs text-gray-700 mb-1 text-center">
                   Fernanda: -4kg em 14 dias
                 </p>
                 <p className="text-xs text-gray-600 italic">
@@ -194,10 +227,17 @@ export default function Page35() {
                 </p>
               </div>
               <div className="bg-gray-50 p-3 rounded-lg">
-                <p className="font-bold text-pink-600 text-sm mb-1">
+                <div className="flex justify-center mb-2">
+                  <img
+                    src={getImageUrl("/images/juliana.png")}
+                    alt="Juliana"
+                    className="w-24 h-24 rounded-full object-cover"
+                  />
+                </div>
+                <p className="font-bold text-pink-600 text-sm mb-1 text-center">
                   Transformação de Juliana
                 </p>
-                <p className="text-xs text-gray-700 mb-1">
+                <p className="text-xs text-gray-700 mb-1 text-center">
                   Juliana: -8kg em 21 dias (Mãe de 2 filhos)
                 </p>
                 <p className="text-xs text-gray-600 italic">
