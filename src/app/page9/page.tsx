@@ -1,13 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
 
 export default function Page9() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const handleContinue = () => {
-    router.push("/page10");
+    setIsSubmitting(true);
+    setTimeout(() => {
+      router.push("/page10");
+    }, 300);
   };
 
   return (
@@ -31,11 +36,10 @@ export default function Page9() {
           {/* Image */}
           <div className="mb-4 flex justify-center">
             <div className="relative w-full h-48 rounded-2xl overflow-hidden shadow-lg">
-              <Image
+              <OptimizedImage
                 src="/images/falaok.png"
                 alt="Mulher fazendo sinal de OK"
-                fill
-                className="object-cover"
+                className="rounded-2xl"
               />
             </div>
           </div>
@@ -53,9 +57,10 @@ export default function Page9() {
           {/* Continue Button */}
           <button 
             onClick={handleContinue}
-            className="w-full bg-pink-600 hover:bg-pink-700 text-white font-medium py-3 rounded-xl transition-colors duration-200"
+            disabled={isSubmitting}
+            className="w-full bg-pink-600 hover:bg-pink-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-medium py-3 rounded-xl transition-colors duration-200"
           >
-            Continuar
+            {isSubmitting ? "Processando..." : "Continuar"}
           </button>
         </div>
 

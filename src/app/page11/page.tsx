@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
 
 export default function Page11() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const options = [
@@ -21,7 +22,10 @@ export default function Page11() {
   };
 
   const handleContinue = () => {
-    router.push("/page12");
+    setIsSubmitting(true);
+    setTimeout(() => {
+      router.push("/page12");
+    }, 300);
   };
 
   return (
@@ -58,11 +62,10 @@ export default function Page11() {
                 }`}
               >
                 <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
-                  <Image
+                  <OptimizedImage
                     src={option.image}
                     alt={option.label}
-                    fill
-                    className="object-cover"
+                    className="rounded-lg"
                   />
                 </div>
                 <span className="text-sm">{option.label}</span>
@@ -74,9 +77,10 @@ export default function Page11() {
           {selectedOption && (
             <button 
               onClick={handleContinue}
-              className="w-full mt-4 bg-pink-600 hover:bg-pink-700 text-white font-medium py-3 rounded-xl transition-colors duration-200"
+              disabled={isSubmitting}
+              className="w-full mt-4 bg-pink-600 hover:bg-pink-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-medium py-3 rounded-xl transition-colors duration-200"
             >
-              Continuar
+              {isSubmitting ? "Processando..." : "Continuar"}
             </button>
           )}
         </div>

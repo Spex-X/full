@@ -1,14 +1,20 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
 
 export default function Page34() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const handleContinue = () => {
+    setIsSubmitting(true);
     // This is the final page, no navigation needed
     console.log("Final page reached");
+    setTimeout(() => {
+      setIsSubmitting(false);
+    }, 300);
   };
 
   return (
@@ -40,11 +46,10 @@ export default function Page34() {
             {/* Now */}
             <div>
               <div className="relative w-full h-40 rounded-xl overflow-hidden shadow-lg mb-3">
-                <Image
+                <OptimizedImage
                   src="/images/agora.webp"
                   alt="Agora"
-                  fill
-                  className="object-cover"
+                  className="rounded-xl"
                 />
               </div>
               <p className="text-center text-gray-600 font-medium mb-2">Agora</p>
@@ -68,11 +73,10 @@ export default function Page34() {
             {/* Goal */}
             <div>
               <div className="relative w-full h-40 rounded-xl overflow-hidden shadow-lg mb-3">
-                <Image
+                <OptimizedImage
                   src="/images/seuobjetivo.webp"
                   alt="Seu objetivo"
-                  fill
-                  className="object-cover"
+                  className="rounded-xl"
                 />
               </div>
               <p className="text-center text-gray-600 font-medium mb-2">Seu objetivo</p>
@@ -119,9 +123,10 @@ export default function Page34() {
           {/* Continue Button */}
           <button 
             onClick={handleContinue}
-            className="w-full bg-pink-600 hover:bg-pink-700 text-white font-medium py-3 rounded-xl transition-colors duration-200"
+            disabled={isSubmitting}
+            className="w-full bg-pink-600 hover:bg-pink-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-medium py-3 rounded-xl transition-colors duration-200"
           >
-            CONTINUAR
+            {isSubmitting ? "Processando..." : "CONTINUAR"}
           </button>
         </div>
 

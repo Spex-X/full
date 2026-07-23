@@ -5,11 +5,15 @@ import { useRouter } from "next/navigation";
 
 export default function Page19() {
   const [age, setAge] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const handleContinue = () => {
     if (age && parseInt(age) > 0) {
-      router.push("/page20");
+      setIsSubmitting(true);
+      setTimeout(() => {
+        router.push("/page20");
+      }, 300);
     }
   };
 
@@ -75,10 +79,10 @@ export default function Page19() {
           {/* Continue Button */}
           <button 
             onClick={handleContinue}
-            disabled={!age || parseInt(age) <= 0}
+            disabled={!age || parseInt(age) <= 0 || isSubmitting}
             className="w-full bg-pink-600 hover:bg-pink-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-medium py-3 rounded-xl transition-colors duration-200"
           >
-            Próximo passo
+            {isSubmitting ? "Processando..." : "Próximo passo"}
           </button>
         </div>
 

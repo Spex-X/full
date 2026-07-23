@@ -6,6 +6,8 @@ import Image from "next/image";
 
 export default function Home() {
   const [selectedAge, setSelectedAge] = useState<string | null>(null);
+  const [showError, setShowError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const ageRanges = [
@@ -17,10 +19,20 @@ export default function Home() {
 
   const handleAgeSelect = (ageId: string) => {
     setSelectedAge(ageId);
+    setShowError(false);
   };
 
   const handleContinue = () => {
-    router.push("/page2");
+    if (!selectedAge) {
+      setShowError(true);
+      return;
+    }
+
+    setIsSubmitting(true);
+    // Simulate processing delay for better UX
+    setTimeout(() => {
+      router.push("/page2");
+    }, 300);
   };
 
   return (
@@ -83,10 +95,18 @@ export default function Home() {
           {selectedAge && (
             <button 
               onClick={handleContinue}
-              className="w-full mt-4 bg-pink-600 hover:bg-pink-700 text-white font-medium py-3 rounded-xl transition-colors duration-200"
+              disabled={isSubmitting}
+              className="w-full mt-4 bg-pink-600 hover:bg-pink-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-medium py-3 rounded-xl transition-colors duration-200"
             >
-              Continuar
+              {isSubmitting ? "Processando..." : "Continuar"}
             </button>
+          )}
+
+          {/* Error Message */}
+          {showError && (
+            <div className="mt-3 bg-red-50 border border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm text-center">
+              Por favor, selecione uma opção para continuar
+            </div>
           )}
         </div>
 

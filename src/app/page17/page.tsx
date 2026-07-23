@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 export default function Page17() {
   const [unit, setUnit] = useState<"kg" | "libra">("kg");
   const [weight, setWeight] = useState(73);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const handleUnitToggle = (newUnit: "kg" | "libra") => {
@@ -19,7 +20,10 @@ export default function Page17() {
   };
 
   const handleContinue = () => {
-    router.push("/page18");
+    setIsSubmitting(true);
+    setTimeout(() => {
+      router.push("/page18");
+    }, 300);
   };
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -122,9 +126,10 @@ export default function Page17() {
           {/* Continue Button */}
           <button 
             onClick={handleContinue}
-            className="w-full bg-pink-600 hover:bg-pink-700 text-white font-medium py-3 rounded-xl transition-colors duration-200"
+            disabled={isSubmitting}
+            className="w-full bg-pink-600 hover:bg-pink-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-medium py-3 rounded-xl transition-colors duration-200"
           >
-            Próximo passo
+            {isSubmitting ? "Processando..." : "Próximo passo"}
           </button>
         </div>
 

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 export default function Page25() {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const options = [
@@ -37,7 +38,10 @@ export default function Page25() {
   };
 
   const handleContinue = () => {
-    router.push("/page26");
+    setIsSubmitting(true);
+    setTimeout(() => {
+      router.push("/page26");
+    }, 300);
   };
 
   return (
@@ -86,9 +90,10 @@ export default function Page25() {
           {selectedOptions.length > 0 && (
             <button 
               onClick={handleContinue}
-              className="w-full mt-4 bg-pink-600 hover:bg-pink-700 text-white font-medium py-3 rounded-xl transition-colors duration-200"
+              disabled={isSubmitting}
+              className="w-full mt-4 bg-pink-600 hover:bg-pink-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-medium py-3 rounded-xl transition-colors duration-200"
             >
-              Continuar
+              {isSubmitting ? "Processando..." : "Continuar"}
             </button>
           )}
         </div>

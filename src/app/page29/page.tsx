@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
 
 export default function Page29() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -55,11 +55,10 @@ export default function Page29() {
           {/* Slideshow */}
           <div className="mb-6 flex justify-center">
             <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-lg">
-              <Image
+              <OptimizedImage
                 src={images[currentImage]}
                 alt={`Antes e depois ${currentImage + 1}`}
-                fill
-                className="object-cover"
+                className="rounded-2xl"
               />
             </div>
           </div>
