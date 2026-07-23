@@ -32,9 +32,6 @@ export default function Page19() {
           <h1 className="text-5xl font-bold text-white mb-2">
             CALISTENIA
           </h1>
-          <p className="text-white/90 text-lg">
-            by Atlas
-          </p>
         </div>
 
         {/* Test Section */}
