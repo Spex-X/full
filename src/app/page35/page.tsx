@@ -328,22 +328,12 @@ export default function Page35() {
           </div>
 
           {/* Guarantee */}
-          <div className="bg-green-50 border-2 border-green-500 p-4 rounded-xl mb-6">
-            <h3 className="text-lg font-bold text-green-700 mb-2 text-center">
-              Selo de Garantia 30 Dias
-            </h3>
-            <p className="text-center font-bold text-green-700 mb-2">
-              30 Dias de Garantia Incondicional
-            </p>
-            <p className="text-xs text-gray-700 text-center">
-              Nós confiamos tanto nos resultados do Protocolo de Calistenia Asiática que o risco é todo nosso.
-            </p>
-            <p className="text-xs text-gray-700 text-center mt-2">
-              Você tem 30 dias inteiros para testar o aplicativo e todos os bônus. Se por qualquer motivo você não estiver 100% satisfeita, nós devolveremos todo o seu investimento.
-            </p>
-            <p className="text-xs text-gray-700 text-center mt-2 font-semibold">
-              Reembolso total e imediato, sem perguntas e sem complicações.
-            </p>
+          <div className="mb-6 flex justify-center">
+            <img
+              src={getImageUrl("/images/30dias.jpeg")}
+              alt="Selo de Garantia 30 Dias"
+              className="w-full h-auto rounded-xl"
+            />
           </div>
 
           {/* FAQ */}

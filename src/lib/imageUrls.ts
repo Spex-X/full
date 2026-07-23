@@ -70,6 +70,9 @@ export const imageUrls: Record<string, string> = {
 
   // Celular
   'celular.png': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784843565/calistenia/celular.png',
+
+  // Guarantee
+  '30dias.jpeg': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784843895/calistenia/garantia-30-dias.jpg',
 };
 
 export function getImageUrl(localPath: string): string {
