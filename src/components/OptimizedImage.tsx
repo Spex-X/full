@@ -8,11 +8,16 @@ interface OptimizedImageProps {
   alt: string;
   className?: string;
   priority?: boolean;
+  width?: number;
+  height?: number;
 }
 
-export default function OptimizedImage({ src, alt, className, priority = false }: OptimizedImageProps) {
+export default function OptimizedImage({ src, alt, className, priority = false, width, height }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+
+  // Check if src is a Cloudinary URL or local path
+  const isCloudinary = src.startsWith('http');
 
   return (
     <div className="relative w-full h-full">
@@ -30,7 +35,9 @@ export default function OptimizedImage({ src, alt, className, priority = false }
         <Image
           src={src}
           alt={alt}
-          fill
+          fill={isCloudinary ? false : true}
+          width={width}
+          height={height}
           className={`object-cover ${className || ''} ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
           priority={priority}
           onLoad={() => setIsLoading(false)}

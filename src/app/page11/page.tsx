@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page11() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -10,11 +11,11 @@ export default function Page11() {
   const router = useRouter();
 
   const options = [
-    { id: "curvado", label: "Curvado", image: "/images/curvada.webp" },
-    { id: "magro", label: "Magro", image: "/images/magro.webp" },
-    { id: "em-forma", label: "Em forma", image: "/images/emforma.webp" },
-    { id: "tonificado", label: "Tonificado", image: "/images/tonificado-.webp" },
-    { id: "bem-corpo", label: "Estou bem com meu corpo", image: "/images/estoubemcommeucorpo.webp" }
+    { id: "curvado", label: "Curvado", image: getImageUrl("/images/curvada.webp") },
+    { id: "magro", label: "Magro", image: getImageUrl("/images/magro.webp") },
+    { id: "em-forma", label: "Em forma", image: getImageUrl("/images/emforma.webp") },
+    { id: "tonificado", label: "Tonificado", image: getImageUrl("/images/tonificado-.webp") },
+    { id: "bem-corpo", label: "Estou bem com meu corpo", image: getImageUrl("/images/estoubemcommeucorpo.webp") }
   ];
 
   const handleOptionSelect = (optionId: string) => {
@@ -63,7 +64,7 @@ export default function Page11() {
               >
                 <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                   <OptimizedImage
-                    src={option.image}
+                    src={option.image || ''}
                     alt={option.label}
                     className="rounded-lg"
                   />

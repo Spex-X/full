@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page9() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,7 +38,7 @@ export default function Page9() {
           <div className="mb-4 flex justify-center">
             <div className="relative w-full h-48 rounded-2xl overflow-hidden shadow-lg">
               <OptimizedImage
-                src="/images/falaok.png"
+                src={getImageUrl("/images/falaok.png")}
                 alt="Mulher fazendo sinal de OK"
                 className="rounded-2xl"
               />

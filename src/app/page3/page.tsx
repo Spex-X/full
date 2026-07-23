@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page3() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -69,7 +70,7 @@ export default function Page3() {
             <div className="flex-shrink-0 w-1/2">
               <div className="relative w-full h-56 rounded-xl overflow-hidden shadow-lg">
                 <OptimizedImage
-                  src="/images/pagina3.png"
+                  src={getImageUrl("/images/pagina3.png")}
                   alt="Mulher fitness"
                   className="rounded-xl"
                 />

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page34() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -47,7 +48,7 @@ export default function Page34() {
             <div>
               <div className="relative w-full h-40 rounded-xl overflow-hidden shadow-lg mb-3">
                 <OptimizedImage
-                  src="/images/agora.webp"
+                  src={getImageUrl("/images/agora.webp")}
                   alt="Agora"
                   className="rounded-xl"
                 />
@@ -74,7 +75,7 @@ export default function Page34() {
             <div>
               <div className="relative w-full h-40 rounded-xl overflow-hidden shadow-lg mb-3">
                 <OptimizedImage
-                  src="/images/seuobjetivo.webp"
+                  src={getImageUrl("/images/seuobjetivo.webp")}
                   alt="Seu objetivo"
                   className="rounded-xl"
                 />

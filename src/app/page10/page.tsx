@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page10() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -10,10 +11,10 @@ export default function Page10() {
   const router = useRouter();
 
   const options = [
-    { id: "magra", label: "Magra", image: "/images/magra.webp" },
-    { id: "falsa-magra", label: "Falsa Magra", image: "/images/falsamagra.webp" },
-    { id: "acima-peso", label: "Acima do peso", image: "/images/acimadopeso.webp" },
-    { id: "sobrepeso", label: "Sobrepeso", image: "/images/sobrepeso.webp" }
+    { id: "magra", label: "Magra", image: getImageUrl("/images/magra.webp") },
+    { id: "falsa-magra", label: "Falsa Magra", image: getImageUrl("/images/falsamagra.webp") },
+    { id: "acima-peso", label: "Acima do peso", image: getImageUrl("/images/acimadopeso.webp") },
+    { id: "sobrepeso", label: "Sobrepeso", image: getImageUrl("/images/sobrepeso.webp") }
   ];
 
   const handleOptionSelect = (optionId: string) => {
@@ -62,7 +63,7 @@ export default function Page10() {
               >
                 <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                   <OptimizedImage
-                    src={option.image}
+                    src={option.image || ''}
                     alt={option.label}
                     className="rounded-lg"
                   />

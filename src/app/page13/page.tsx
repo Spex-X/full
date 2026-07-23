@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page13() {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
@@ -10,11 +11,11 @@ export default function Page13() {
   const router = useRouter();
 
   const options = [
-    { id: "costas", label: "Costas sensíveis", image: "/images/costassensiveis.webp" },
-    { id: "joelhos", label: "Joelhos sensíveis", image: "/images/joelhossensiveis.webp" },
-    { id: "quadril", label: "Quadril sensível", image: "/images/quadrilsensivel.webp" },
-    { id: "ombros", label: "Ombros e braços", image: "/images/ombrosebraços.webp" },
-    { id: "panturrilhas", label: "Panturrilhas e tornozelos", image: "/images/panturilhasetornozelos.webp" },
+    { id: "costas", label: "Costas sensíveis", image: getImageUrl("/images/costassensiveis.webp") },
+    { id: "joelhos", label: "Joelhos sensíveis", image: getImageUrl("/images/joelhossensiveis.webp") },
+    { id: "quadril", label: "Quadril sensível", image: getImageUrl("/images/quadrilsensivel.webp") },
+    { id: "ombros", label: "Ombros e braços", image: getImageUrl("/images/ombrosebraços.webp") },
+    { id: "panturrilhas", label: "Panturrilhas e tornozelos", image: getImageUrl("/images/panturilhasetornozelos.webp") },
     { id: "nenhuma", label: "Nenhuma das opções acima", image: null }
   ];
 
@@ -79,7 +80,7 @@ export default function Page13() {
                 {option.image && (
                   <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                     <OptimizedImage
-                      src={option.image}
+                      src={option.image || ''}
                       alt={option.label}
                       className="rounded-lg"
                     />

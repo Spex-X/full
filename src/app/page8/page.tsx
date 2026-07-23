@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page8() {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
@@ -10,12 +11,12 @@ export default function Page8() {
   const router = useRouter();
 
   const options = [
-    { id: "barriga", label: "Barriga", image: "/images/bariga.webp" },
-    { id: "bunda", label: "Bunda", image: "/images/bunda.webp" },
-    { id: "pernas", label: "Pernas", image: "/images/pernas.webp" },
-    { id: "peito", label: "Peito", image: "/images/peito.webp" },
-    { id: "bracos", label: "Braços", image: "/images/braços.webp" },
-    { id: "costas", label: "Costas", image: "/images/costa.webp" }
+    { id: "barriga", label: "Barriga", image: getImageUrl("/images/bariga.webp") },
+    { id: "bunda", label: "Bunda", image: getImageUrl("/images/bunda.webp") },
+    { id: "pernas", label: "Pernas", image: getImageUrl("/images/pernas.webp") },
+    { id: "peito", label: "Peito", image: getImageUrl("/images/peito.webp") },
+    { id: "bracos", label: "Braços", image: getImageUrl("/images/braços.webp") },
+    { id: "costas", label: "Costas", image: getImageUrl("/images/costa.webp") }
   ];
 
   const handleOptionToggle = (optionId: string) => {
@@ -71,7 +72,7 @@ export default function Page8() {
               >
                 <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                   <OptimizedImage
-                    src={option.image}
+                    src={option.image || ''}
                     alt={option.label}
                     className="rounded-lg"
                   />

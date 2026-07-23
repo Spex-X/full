@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Home() {
   const [selectedAge, setSelectedAge] = useState<string | null>(null);
@@ -81,10 +82,11 @@ export default function Home() {
             {/* Image */}
             <div className="flex-shrink-0 w-1/2">
               <div className="relative w-full h-56 rounded-xl overflow-hidden shadow-lg">
-                <Image
-                  src="/images/capa1.png"
+                <OptimizedImage
+                  src={getImageUrl("/images/capa1.png")}
                   alt="Mulher asiática praticando calistenia"
-                  fill
+                  width={400}
+                  height={300}
                   className="object-contain"
                 />
               </div>

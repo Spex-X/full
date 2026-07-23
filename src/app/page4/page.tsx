@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page4() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -49,7 +50,7 @@ export default function Page4() {
             <div className="flex-shrink-0 w-1/2">
               <div className="relative w-full h-56 rounded-xl overflow-hidden shadow-lg">
                 <OptimizedImage
-                  src="/images/pagina 4.png"
+                  src={getImageUrl("/images/pagina 4.png")}
                   alt="Mulher praticando exercício"
                   className="rounded-xl"
                 />

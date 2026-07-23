@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page20() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -14,19 +15,19 @@ export default function Page20() {
       id: "sedentario", 
       label: "Sedentário", 
       description: "Eu passo a maior parte do dia sentado",
-      image: "/images/sedentario.webp" 
+      image: getImageUrl("/images/sedentario.webp") 
     },
     { 
       id: "moderada", 
       label: "Atividade moderada", 
       description: "Eu faço pausas ativas",
-      image: "/images/atividademoderada_-.webp" 
+      image: getImageUrl("/images/atividademoderada_-.webp") 
     },
     { 
       id: "imparavel", 
       label: "Eu sou imparável", 
       description: "Estou de pé o dia todo",
-      image: "/images/eusouimparavel.webp" 
+      image: getImageUrl("/images/eusouimparavel.webp") 
     }
   ];
 
@@ -80,7 +81,7 @@ export default function Page20() {
                 <div className="flex items-center gap-4">
                   <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                     <OptimizedImage
-                      src={option.image}
+                      src={option.image || ''}
                       alt={option.label}
                       className="rounded-lg"
                     />

@@ -3,15 +3,16 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page29() {
   const [currentImage, setCurrentImage] = useState(0);
   const router = useRouter();
 
   const images = [
-    "/images/antesdeposi1.jpeg",
-    "/images/antesdepois2.jpeg",
-    "/images/antesdeposi3.jpeg"
+    getImageUrl("/images/antesdeposi1.jpeg"),
+    getImageUrl("/images/antesdepois2.jpeg"),
+    getImageUrl("/images/antesdeposi3.jpeg")
   ];
 
   useEffect(() => {

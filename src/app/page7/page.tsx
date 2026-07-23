@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page7() {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
@@ -11,14 +12,14 @@ export default function Page7() {
 
   const options = [
     { id: "corpo-inteiro", label: "Melhorar o corpo inteiro", icon: "🏃‍♀️" },
-    { id: "queixo-duplo", label: "Queixo duplo", image: "/images/queixoduplo.webp" },
-    { id: "bracos-flacidos", label: "Braços flácidos", image: "/images/braçosflácidos.webp" },
-    { id: "seios-caidos", label: "Seios caídos", image: "/images/seioscaidos.webp" },
-    { id: "gordura-barriga", label: "Gordura da barriga", image: "/images/gorduradabarriga.webp" },
-    { id: "gordura-joelhos", label: "Gordura nos joelhos", image: "/images/gorduradosjoelhos.webp" },
-    { id: "traseiro-alforje", label: "Traseiro de alforje", image: "/images/traseirosalforge.webp" },
-    { id: "nadegas-flacidas", label: "Nádegas flácidas", image: "/images/nádegasflácidas.webp" },
-    { id: "parte-interna-coxa", label: "Parte interna da coxa", image: "/images/parteinternadacoxa.webp" }
+    { id: "queixo-duplo", label: "Queixo duplo", image: getImageUrl("/images/queixoduplo.webp") },
+    { id: "bracos-flacidos", label: "Braços flácidos", image: getImageUrl("/images/braçosflácidos.webp") },
+    { id: "seios-caidos", label: "Seios caídos", image: getImageUrl("/images/seioscaidos.webp") },
+    { id: "gordura-barriga", label: "Gordura da barriga", image: getImageUrl("/images/gorduradabarriga.webp") },
+    { id: "gordura-joelhos", label: "Gordura nos joelhos", image: getImageUrl("/images/gorduradosjoelhos.webp") },
+    { id: "traseiro-alforje", label: "Traseiro de alforje", image: getImageUrl("/images/traseirosalforge.webp") },
+    { id: "nadegas-flacidas", label: "Nádegas flácidas", image: getImageUrl("/images/nádegasflácidas.webp") },
+    { id: "parte-interna-coxa", label: "Parte interna da coxa", image: getImageUrl("/images/parteinternadacoxa.webp") }
   ];
 
   const handleOptionToggle = (optionId: string) => {
@@ -87,7 +88,7 @@ export default function Page7() {
                 {option.image ? (
                   <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                     <OptimizedImage
-                      src={option.image}
+                      src={option.image || ''}
                       alt={option.label}
                       className="rounded-lg"
                     />

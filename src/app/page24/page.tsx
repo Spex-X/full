@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page24() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -14,31 +15,31 @@ export default function Page24() {
       id: "vegetariana", 
       label: "Eu sou vegetariana", 
       description: "Verduras, grãos, mas sem carne animal",
-      image: "/images/eusouvegetariana.webp" 
+      image: getImageUrl("/images/eusouvegetariana.webp") 
     },
     { 
       id: "vegana", 
       label: "Eu sou vegana", 
       description: "Puramente à base de plantas, sem produtos de origem animal",
-      image: "/images/eusouvegana.webp" 
+      image: getImageUrl("/images/eusouvegana.webp") 
     },
     { 
       id: "sem-gluten", 
       label: "Não contém glúten", 
       description: "Exclua produtos de grãos que contenham glúten",
-      image: "/images/nãocontengluten.webp" 
+      image: getImageUrl("/images/nãocontengluten.webp") 
     },
     { 
       id: "sem-lactose", 
       label: "Sem lactose", 
       description: "Excluir produtos lácteos",
-      image: "/images/semlactoese.webp" 
+      image: getImageUrl("/images/semlactoese.webp") 
     },
     { 
       id: "sem-restricoes", 
       label: "Sem restrições", 
       description: "Aberto a todos os alimentos",
-      image: "/images/semresrição.webp" 
+      image: getImageUrl("/images/semresrição.webp") 
     }
   ];
 
@@ -92,7 +93,7 @@ export default function Page24() {
                 <div className="flex items-center gap-3">
                   <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                     <OptimizedImage
-                      src={option.image}
+                      src={option.image || ''}
                       alt={option.label}
                       className="rounded-lg"
                     />

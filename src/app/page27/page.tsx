@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getImageUrl } from "@/lib/imageUrls";
 
 export default function Page27() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,7 +35,7 @@ export default function Page27() {
           <div className="mb-6 flex justify-center">
             <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-lg">
               <OptimizedImage
-                src="/images/recupereseucorpo.webp"
+                src={getImageUrl("/images/recupereseucorpo.webp")}
                 alt="Mulher motivada"
                 className="rounded-2xl"
               />
