@@ -37,6 +37,21 @@ export default function Page35() {
             </p>
           </div>
 
+          {/* Video */}
+          <div className="mb-6">
+            <video
+              controls
+              className="w-full rounded-xl shadow-lg"
+              poster="https://res.cloudinary.com/dss3arlis/image/upload/v1784832900/video-poster.jpg"
+            >
+              <source
+                src="https://res.cloudinary.com/dss3arlis/video/upload/v1784832900/Programa_de_Calistenia_para_Mulheres_zalhur.mp4"
+                type="video/mp4"
+              />
+              Seu navegador não suporta vídeos.
+            </video>
+          </div>
+
           {/* CTA Button */}
           <button 
             onClick={handleContinue}
