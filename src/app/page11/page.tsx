@@ -4,23 +4,24 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-export default function Home() {
-  const [selectedAge, setSelectedAge] = useState<string | null>(null);
+export default function Page11() {
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const router = useRouter();
 
-  const ageRanges = [
-    { id: "39-45", label: "39 – 45" },
-    { id: "46-50", label: "46 – 50" },
-    { id: "51-60", label: "51 – 60" },
-    { id: "60+", label: "60+" }
+  const options = [
+    { id: "curvado", label: "Curvado", image: "/images/curvada.webp" },
+    { id: "magro", label: "Magro", image: "/images/magro.webp" },
+    { id: "em-forma", label: "Em forma", image: "/images/emforma.webp" },
+    { id: "tonificado", label: "Tonificado", image: "/images/tonificado-.webp" },
+    { id: "bem-corpo", label: "Estou bem com meu corpo", image: "/images/estoubemcommeucorpo.webp" }
   ];
 
-  const handleAgeSelect = (ageId: string) => {
-    setSelectedAge(ageId);
+  const handleOptionSelect = (optionId: string) => {
+    setSelectedOption(optionId);
   };
 
   const handleContinue = () => {
-    router.push("/page2");
+    router.push("/page12");
   };
 
   return (
@@ -31,9 +32,6 @@ export default function Home() {
           <h1 className="text-5xl font-bold text-white mb-2">
             CALISTENIA
           </h1>
-          <p className="text-white/90 text-lg">
-            Programa de Calistenia Asiática para Mulheres
-          </p>
         </div>
 
         {/* Test Section */}
@@ -43,44 +41,37 @@ export default function Home() {
               TESTE DE 1 MINUTO
             </div>
             <h2 className="text-xl font-semibold text-gray-800 mb-4">
-              Quantos anos você tem?
+              Qual é o corpo dos seus sonhos?
             </h2>
           </div>
 
-          {/* Image and Options Layout */}
-          <div className="flex gap-4 items-start">
-            {/* Age Options */}
-            <div className="flex-1 space-y-2">
-              {ageRanges.map((range) => (
-                <button
-                  key={range.id}
-                  onClick={() => handleAgeSelect(range.id)}
-                  className={`w-full p-3 rounded-xl border-2 transition-all duration-200 text-left font-medium ${
-                    selectedAge === range.id
-                      ? "border-pink-500 bg-pink-50 text-pink-700"
-                      : "border-gray-200 hover:border-pink-300 hover:bg-pink-50/50 text-gray-700"
-                  }`}
-                >
-                  {range.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Image */}
-            <div className="flex-shrink-0 w-1/2">
-              <div className="relative w-full h-56 rounded-xl overflow-hidden shadow-lg">
-                <Image
-                  src="/images/capa1.png"
-                  alt="Mulher asiática praticando calistenia"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </div>
+          {/* Options with Images */}
+          <div className="space-y-2">
+            {options.map((option) => (
+              <button
+                key={option.id}
+                onClick={() => handleOptionSelect(option.id)}
+                className={`w-full p-3 rounded-xl border-2 transition-all duration-200 text-left font-medium flex items-center gap-3 ${
+                  selectedOption === option.id
+                    ? "border-pink-500 bg-pink-50 text-pink-700"
+                    : "border-gray-200 hover:border-pink-300 hover:bg-pink-50/50 text-gray-700"
+                }`}
+              >
+                <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+                  <Image
+                    src={option.image}
+                    alt={option.label}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <span className="text-sm">{option.label}</span>
+              </button>
+            ))}
           </div>
 
           {/* Continue Button */}
-          {selectedAge && (
+          {selectedOption && (
             <button 
               onClick={handleContinue}
               className="w-full mt-4 bg-pink-600 hover:bg-pink-700 text-white font-medium py-3 rounded-xl transition-colors duration-200"
@@ -93,16 +84,16 @@ export default function Home() {
         {/* Progress Indicator */}
         <div className="mt-6 flex justify-center">
           <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-white/50"></div>
+            <div className="w-2 h-2 rounded-full bg-white/50"></div>
+            <div className="w-2 h-2 rounded-full bg-white/50"></div>
+            <div className="w-2 h-2 rounded-full bg-white/50"></div>
+            <div className="w-2 h-2 rounded-full bg-white/50"></div>
+            <div className="w-2 h-2 rounded-full bg-white/50"></div>
+            <div className="w-2 h-2 rounded-full bg-white/50"></div>
+            <div className="w-2 h-2 rounded-full bg-white/50"></div>
+            <div className="w-2 h-2 rounded-full bg-white/50"></div>
             <div className="w-2 h-2 rounded-full bg-white"></div>
-            <div className="w-2 h-2 rounded-full bg-white/50"></div>
-            <div className="w-2 h-2 rounded-full bg-white/50"></div>
-            <div className="w-2 h-2 rounded-full bg-white/50"></div>
-            <div className="w-2 h-2 rounded-full bg-white/50"></div>
-            <div className="w-2 h-2 rounded-full bg-white/50"></div>
-            <div className="w-2 h-2 rounded-full bg-white/50"></div>
-            <div className="w-2 h-2 rounded-full bg-white/50"></div>
-            <div className="w-2 h-2 rounded-full bg-white/50"></div>
-            <div className="w-2 h-2 rounded-full bg-white/50"></div>
             <div className="w-2 h-2 rounded-full bg-white/50"></div>
           </div>
         </div>
