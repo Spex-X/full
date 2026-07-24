@@ -11,10 +11,8 @@ export default function Page34() {
 
   const handleContinue = () => {
     setIsSubmitting(true);
-    // This is the final page, no navigation needed
-    console.log("Final page reached");
     setTimeout(() => {
-      setIsSubmitting(false);
+      router.push("/page35");
     }, 300);
   };
 
@@ -144,6 +142,7 @@ export default function Page34() {
             <div className="w-2 h-2 rounded-full bg-white/50"></div>
             <div className="w-2 h-2 rounded-full bg-white/50"></div>
             <div className="w-2 h-2 rounded-full bg-white"></div>
+            <div className="w-2 h-2 rounded-full bg-white/50"></div>
           </div>
         </div>
       </div>
