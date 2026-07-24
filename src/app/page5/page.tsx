@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { trackMetaPixelCustomEvent } from "@/lib/metaPixel";
 
 export default function Page5() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -21,6 +22,7 @@ export default function Page5() {
 
   const handleContinue = () => {
     setIsSubmitting(true);
+    trackMetaPixelCustomEvent('QuizStep4');
     setTimeout(() => {
       router.push("/page6");
     }, 300);

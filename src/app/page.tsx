@@ -30,6 +30,10 @@ export default function Home() {
     }
 
     setIsSubmitting(true);
+    // Track Lead event for Meta Pixel
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Lead');
+    }
     // Simulate processing delay for better UX
     setTimeout(() => {
       router.push("/page2");

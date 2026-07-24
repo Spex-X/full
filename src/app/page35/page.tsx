@@ -2,12 +2,25 @@
 
 import { useRouter } from "next/navigation";
 import { getImageUrl } from "@/lib/imageUrls";
+import { trackMetaPixelEvent, trackMetaPixelCustomEvent } from "@/lib/metaPixel";
+import { useEffect } from "react";
 
 export default function Page35() {
   const router = useRouter();
 
+  // Track CompleteRegistration when user reaches result page
+  useEffect(() => {
+    trackMetaPixelEvent('CompleteRegistration');
+  }, []);
+
   const handleContinue = () => {
-    // This is the final sales page
+    // Track InitiateCheckout when user clicks buy button
+    trackMetaPixelEvent('InitiateCheckout', {
+      content_name: 'Calistenia Asiática',
+      content_category: 'Fitness',
+      value: 37.90,
+      currency: 'BRL'
+    });
     console.log("Sales page");
   };
 

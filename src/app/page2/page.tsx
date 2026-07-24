@@ -11,6 +11,10 @@ export default function Page2() {
 
   const handleContinue = () => {
     setIsSubmitting(true);
+    // Track custom quiz step event for Meta Pixel
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('trackCustom', 'QuizStep1');
+    }
     setTimeout(() => {
       router.push("/page3");
     }, 300);

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OptimizedImage from "@/components/OptimizedImage";
 import { getImageUrl } from "@/lib/imageUrls";
+import { trackMetaPixelCustomEvent } from "@/lib/metaPixel";
 
 export default function Page8() {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
@@ -29,6 +30,7 @@ export default function Page8() {
 
   const handleContinue = () => {
     setIsSubmitting(true);
+    trackMetaPixelCustomEvent('QuizStep7');
     setTimeout(() => {
       router.push("/page9");
     }, 300);
