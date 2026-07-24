@@ -10,9 +10,9 @@ export default function Page29() {
   const router = useRouter();
 
   const images = [
-    getImageUrl("/images/antesdeposi1.jpeg"),
-    getImageUrl("/images/antesdepois2.jpeg"),
-    getImageUrl("/images/antesdeposi3.jpeg")
+    getImageUrl("/images/antesdepois1.png"),
+    getImageUrl("/images/antesdepois2.png"),
+    getImageUrl("/images/antesdepois3.png")
   ];
 
   useEffect(() => {

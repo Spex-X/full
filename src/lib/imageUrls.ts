@@ -55,9 +55,9 @@ export const imageUrls: Record<string, string> = {
   'pagina3.png': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784832428/calistenia/pagina3.png',
 
   // Before/after
-  'antesdeposi1.jpeg': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784832378/calistenia/antesdeposi1.jpg',
-  'antesdepois2.jpeg': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784832379/calistenia/antesdepois2.jpg',
-  'antesdeposi3.jpeg': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784832381/calistenia/antesdeposi3.jpg',
+  'antesdepois1.png': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784851527/calistenia/before-after/antesdepois1.png',
+  'antesdepois2.png': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784851531/calistenia/before-after/antesdepois2.png',
+  'antesdepois3.png': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784851534/calistenia/before-after/antesdepois3.png',
   'agora.webp': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784832376/calistenia/agora.webp',
   'seuobjetivo.webp': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784832442/calistenia/seuobjetivo.webp',
   'recupereseucorpo.webp': 'https://res.cloudinary.com/dss3arlis/image/upload/v1784832436/calistenia/recupereseucorpo.webp',
