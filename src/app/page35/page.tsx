@@ -21,7 +21,8 @@ export default function Page35() {
       value: 37.90,
       currency: 'BRL'
     });
-    console.log("Sales page");
+    // Navigate to checkout
+    window.open('https://pay.kiwify.com.br/qlGnVgd', '_blank');
   };
 
   return (
